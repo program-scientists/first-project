@@ -105,6 +105,6 @@ int User::id;
 int main()
 {	Buyer u("Alireza","Abri","A_AB","1234");
 //	u.login("A_AB","1234");
-	Admin a("A","123");
+	Admin a("Admin","0000");
 	a.getUser(u);
 }
