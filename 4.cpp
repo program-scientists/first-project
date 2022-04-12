@@ -14,11 +14,11 @@ public:
 	unsigned int age;
 	Person()
 	{
-		cout << "--Person CONSTRUCTOR called--" << endl;
+		cout << "--Person CONSTRUCTOR has been called--" << endl;
 	}
 	~Person()
 	{
-		cout << "--Person DESTRUCTOR called--" << endl;
+		cout << "--Person DESTRUCTOR has been called--" << endl;
 	}
 	void getDetails()
 	{
