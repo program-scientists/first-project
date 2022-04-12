@@ -63,7 +63,7 @@ public:
 		family = f;
 		username = u;
 		password = p;
-		accessCode = 3;
+		accessCode = 2;
 	}
 	void login(string u, string p)
 	{
