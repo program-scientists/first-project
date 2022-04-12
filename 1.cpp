@@ -23,10 +23,7 @@ private:
 		}
 	}
 protected:
-	string name;
-	string family;
-	string username;
-	string password;
+	string name, family, username, password;
 	int accessCode;
 public:
 	User()
@@ -42,7 +39,7 @@ protected:
 	bool s = false;
 	const string username = "Admin";
 	const string password = "0000";
-	int accessCode;
+	int accessCode = 1;
 public:
 	void getUser(User ob)
 	{
@@ -118,11 +115,11 @@ int User::id;
 
 int main()
 {	
-	Buyer u1("Alireza","Abri","A_AB","123");
+	Buyer u1("Alireza","Abri","AL_AB","123");
 	Buyer u2("Matin","Alishani","A_ABC","1234");
 	Buyer u3("Pardis","Kazemi","A_ABCD","12345");
 //	u.login("A_AB","123");
 //////////////////////////////
 	Admin a("Admin", "0000");
-	a.getUser(u3);
+	a.getUser(u1);
 }
