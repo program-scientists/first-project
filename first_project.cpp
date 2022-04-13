@@ -1,7 +1,25 @@
 #include<iostream>
 #include<string.h> 
 using namespace std;
-
+    /* third part */
+    /* master's profile */
+    class StudentInformations {
+        private : 
+            string student_name = "Ali Shahbazi";
+            int student_ID = 1273896858;
+        protected : 
+        float math, chemistry ;
+    };
+    class StudentScores : public StudentInformations{
+        public :
+        void get_scores(){ 
+            cout << "enter math score : ";
+            cin >> math ;
+            cout << "enter chemistry score : ";
+            cin >> chemistry;
+         };
+    };
+    
     /* fifth part */
     /* defining student class and get his/her informations */
     class Student {
@@ -81,10 +99,15 @@ using namespace std;
      
 int main(){
 
+    /*third part test*/
+    StudentScores obj1;
+    obj1.get_scores();
+
     /*fifth part test */
     BachelorsStudents s1;
     s1.get_student_informations();
     s1.show_student_informations();
+    
 
     return 0;
 }
