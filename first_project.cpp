@@ -2,24 +2,54 @@
 #include<string.h> 
 using namespace std;
     /* third part */
-    /* master's profile */
     class StudentInformations {
-        private : 
-            string student_name = "Ali Shahbazi";
-            int student_ID = 1273896858;
-        protected : 
-        float math, chemistry ;
-    };
-    class StudentScores : public StudentInformations{
         public :
-        void get_scores(){ 
-            cout << "enter math score : ";
-            cin >> math ;
-            cout << "enter chemistry score : ";
-            cin >> chemistry;
-         };
+            string student_name ;
+            int student_ID , age , height , weight ; 
     };
-    
+
+    class SalamatSchool : protected StudentInformations {
+    };
+    class MadaniSchool : private StudentInformations{   
+    };
+    class GetInfo1 : public SalamatSchool {
+        void get_info (){
+                cout<< "enter student's name : " ;
+                cin>> student_name;
+
+                cout<< "enter student's ID : " ;
+                cin>> student_ID;
+
+                cout<< "enter student's age : " ;
+                cin>> age ;
+
+                cout<< "enter student's height : " ;
+                cin>> height ;
+
+                cout<< "enter student's weight : " ;
+                cin>> weight ;
+            }  
+    };
+
+    class GetInfo2 : public MadaniSchool {
+        void get_info (){
+                cout<< "enter student's name : " ;
+                cin>> student_name;
+
+                cout<< "enter student's ID : " ;
+                cin>> student_ID;
+
+                cout<< "enter student's age : " ;
+                cin>> age ;
+
+                cout<< "enter student's height : " ;
+                cin>> height ;
+
+                cout<< "enter student's weight : " ;
+                cin>> weight ;
+            } 
+    };
+
     /* fifth part */
     /* defining student class and get his/her informations */
     class Student {
@@ -99,15 +129,10 @@ using namespace std;
      
 int main(){
 
-    /*third part test*/
-    StudentScores obj1;
-    obj1.get_scores();
-
-    /*fifth part test */
+   /*fifth part test*/ 
     BachelorsStudents s1;
     s1.get_student_informations();
     s1.show_student_informations();
-    
 
     return 0;
 }
