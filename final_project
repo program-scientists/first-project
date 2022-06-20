@@ -18,8 +18,8 @@ public:
 
 	void show_vehicle_informations() {
 		cout << "The model of vehicle is : " << model;
-		cout << "The color of vehicle is : " << color;
-		cout << "The plaque of vehicle is : " << plaque;
+		cout << "\nThe color of vehicle is : " << color;
+		cout << "\nThe plaque of vehicle is : " << plaque;
 	}
 };
 
@@ -37,9 +37,9 @@ public:
 	}
 
 	void show_driver_informations() {
-		cout << "The name of driver is : " << name;
-		cout << "The family of driver is : " << family;
-		cout << "The id of driver is : " << id;
+		cout << "\nThe name of driver is : " << name;
+		cout << "\nThe family of driver is : " << family;
+		cout << "\nThe id of driver is : " << id;
 	}
 };
 
@@ -47,8 +47,8 @@ public:
 class Travel {
 protected:
 	static int numberOfTravels;
-	string origin, destination, time, type;
-	float cost;
+	string origin, destination, time, type= "Passenger";
+	float cost=0;
 public:
 	void set_Travel_informations(string org, string dest, string t, string tp) {
 		origin = org;
@@ -63,7 +63,7 @@ public:
 int Travel::numberOfTravels = 0;
 
 // declaring two classes to define properties of Freightage and passenger service travels  
-class Freightage{
+class Freightage {
 protected:
 	float freight_weight;
 public:
@@ -96,9 +96,9 @@ public:
 //defining all types of transportations and calculate cost of travel   
 class Bus : public Transportation, public Passenger, public Freightage {
 public:
-	Bus() {
-		calculate_cost();
-	}
+	//Bus() {
+	//	calculate_cost();
+	//}
 	void calculate_cost() {
 		if (type == "Passenger") {
 			cost = passenger_number * 40000;
@@ -106,6 +106,7 @@ public:
 		else {
 			cost = freight_weight * 10000;
 		}
+		cout << "Cost: " << cost << endl;
 	}
 
 };
@@ -122,6 +123,7 @@ public:
 		else {
 			cost = freight_weight * 40000;
 		}
+		cout << "Cost: " << cost << endl;
 	}
 };
 
@@ -136,6 +138,7 @@ public:
 		else {
 			cost = freight_weight * 30000;
 		}
+		cout << "Cost: " << cost << endl;
 	}
 };
 
@@ -145,10 +148,12 @@ public:
 	void calculate_cost() {
 		if (type == "Passenger") {
 			cost = passenger_number * 30000;
+
 		}
 		else {
 			cost = freight_weight * 9000;
 		}
+		cout << "Cost: " << cost << endl;
 	}
 };
 
@@ -158,9 +163,9 @@ public:
 
 	void calculate_cost() {
 		cost = freight_weight * 20000;
+		cout << "\nCost: " << cost << endl;
 	}
 };
-
 class Ticket : public Passenger {
 public:
 	Ticket()
@@ -173,9 +178,9 @@ public:
 		{
 			cost /= 2;
 		}
-		cout << "Name: " << name << "\tFamily: " << family << "\nAge: " << age << "\tID: " << _id << "\nMobile: " << mobile;
+		cout << "\nName: " << name << "\tFamily: " << family << "\nAge: " << age << "\tID: " << _id << "\nMobile: " << mobile;
 		cout << "\nOrigin: " << origin << "\tDestinition: " << destination << "\nDate: " << time << "\tType: " << type << endl;
-		cout << "Cost: " << cost << endl;
+		
 	}
 };
 
@@ -192,21 +197,15 @@ int main() {
 	obj2.show_driver_informations();
 
 	// set a Travel 
-	Travel obj3;
+	Ticket obj3;
 	obj3.set_Travel_informations("Esfahan", "Tabriz", "15:30", "Passenger");
 
 	//set a passenger
-	Passenger obj4;
-	Passenger* p;
-	p = &obj4;
-	p->set_passenger_number(1);
-	p->set_passenger_information("Ali", "Alishani", "12855442", "091300000", 7);
+	obj3.set_passenger_information("Ali", "Alishani", "12855442", "091300000", 7);
+	obj3.showTicket();
 
-	Bus obj5;
-	obj5.calculate_cost();
-
-	// set a ticket 
-	Ticket obj6;
-	obj6.showTicket();
-	return 0;
+	//Bus
+	Bus obj4;
+	obj4.set_passenger_number(1);
+	obj4.calculate_cost();
 }
